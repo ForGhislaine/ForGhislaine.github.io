@@ -29,6 +29,10 @@
     margin-bottom: 20px; /* Space between navbar and content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     border-radius: 8px; /* Rounded corners */
+    position: fixed; /* Fixed at the top */
+    top: 0; /* Stick to the top of the page */
+    width: 100%; /* Full width of the screen */
+    z-index: 1000; /* Ensure the navbar is on top */ 
 }
 
 .navbar ul {
