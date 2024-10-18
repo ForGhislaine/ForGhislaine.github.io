@@ -1,0 +1,139 @@
+
+  
+  body {
+    font-family: 'Consolas', sans-serif;
+    background-color: #0b1522;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  
+  .heading {
+    font-family: 'Consolas', sans-serif;
+      text-align: center;
+      font-size: 2.0em;
+      letter-spacing: 1px;
+      padding: 30px 30px 0px 30px;
+      color: white;
+  }
+
+  .navbar {
+    background-color: #ea4c4c; /* Navbar background color */
+    padding: 15px 0; /* Padding around the navbar */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space between navbar and content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.navbar li {
+    display: inline; /* Display list items in a line */
+    margin: 0 20px; /* Space between items */
+}
+
+.navbar a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s, transform 0.3s; /* Transition effect */
+    padding: 8px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded corners for links */
+}
+
+.navbar a:hover {
+    color: #ffffff85; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
+    transform: scale(1.05); /* Slightly enlarge the link on hover */
+}
+
+/* Optional: Active Link Style */
+.navbar a.active {
+    border-bottom: 2px solid #fff; /* Underline for active link */
+}
+
+  .border{
+    border-style: solid;
+    border-color: #ea4c4c;
+    border-radius: 5px;
+    width: 90%; /* Adjust this value to make the border smaller */
+    margin: 0 auto; /* Center the element horizontally */
+  }
+  .gallery-image {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .gallery-image img {
+    height: 350px;
+    width: 250px;
+    transform: scale(1.0);
+    transition: transform 0.4s ease;
+  }
+  
+  .img-box {
+    box-sizing: content-box;
+    margin: 10px;
+    height: 350px;
+    width: 250px;
+    overflow: hidden;
+    display: inline-block;
+    color: white;
+    position: relative;
+    background-color: white;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    opacity: 0.0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .transparent-box {
+    height: 350px;
+    width: 250px;
+    background-color:rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .img-box:hover img { 
+    transform: scale(1.1);
+  }
+  
+  .img-box:hover .transparent-box {
+    background-color:rgba(0, 0, 0, 0.5);
+  }
+  
+  .img-box:hover .caption {
+    transform: translateY(-20px);
+    opacity: 1.0;
+  }
+  
+  .img-box:hover {
+    cursor: pointer;
+  }
+  
+  .caption > p:nth-child(2) {
+    font-size: 0.8em;
+  }
+  
+  .opacity-low {
+    opacity: 0.5;
+  }
