@@ -8,14 +8,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Define locations for each timeline event
 var locations = {
-    1: {lat: 53.37208158229959, lng: -1.4748009901520962, popup: "The Reconnection - Treehouse Boardgame Cafe"},
-    2: {lat: 53.38303898018667, lng: -1.4671227798212993, popup: "Our First Date - Escape Sheffield"},
-    3: {lat: 53.377887, lng: -1.459682, popup: "Our First Kiss - Train Station Spot"},
-    4: {lat: 53.424337, lng: -1.502844, popup: "Started Dating - Sunset Spot"}
+    1: {lat: 53.37208158229959, lng: -1.4748009901520962, popup: "The Reconnection - Boardgame Cafe - 23/01/24"},
+    2: {lat: 53.38303898018667, lng: -1.4671227798212993, popup: "First Date - Escape Sheffield - 10/02/24"},
+    3: {lat: 53.414919822954374, lng:  -1.4134152738712855, popup: "First Kiss - Cinema - 11/03/24"},
+    4: {lat: 53.424337, lng: -1.502844, popup: "Started Dating - Sunset Spot - 13/04/24"}
     // Add more locations as needed
 }; 
 
- 
+
 
 // Add pins (markers) for each location
 Object.keys(locations).forEach(function(key) {
