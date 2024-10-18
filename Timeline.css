@@ -68,21 +68,30 @@
 
 /* Timeline container */
 .timeline {
-    display: flex;
-    justify-content: space-around;
+    display: flex; /* Keep it flexible for horizontal layout */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    
     margin-top: 20px;
     padding: 10px;
     background-color: #ea4c4c; /* Match the navbar color */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    white-space: nowrap; /* Prevent line breaks */
+    max-width: 100%; /* Ensure it doesn't exceed the container */
+    position: fixed;
+    bottom: 0;
 }
 
 /* Timeline items */
 .timeline-item {
     cursor: pointer;
     padding: 10px;
-    background-color: #ea4c4c;
-    transition: background-color 0.3s ease;
+    background-color: #ea4c4c; /* Consistent background color */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 10px; /* Add some space between items */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+    display: inline-block; /* Make sure items display in a line */
 }
 
 .timeline-item:hover {
