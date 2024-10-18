@@ -2,6 +2,7 @@ body {
     font-family: 'Consolas', sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +16,7 @@ body {
     padding: 15px 0; /* Padding around the navbar */
     text-align: center; /* Center the text */
     margin-bottom: 20px; /* Space between navbar and content */
+    margin-top: -90px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     border-radius: 8px; /* Rounded corners */
 }
