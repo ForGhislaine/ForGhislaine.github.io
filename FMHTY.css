@@ -71,6 +71,7 @@ body {
 .letter-section {
     font-family: 'Comic Sans MS', sans-serif;
     max-width: 100%;
+    margin: 120px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -79,36 +80,11 @@ body {
     position: relative;
     z-index: 1;
     color: #ea4c4c; /*Change font colour*/
-    height: 100%;
+    height: 620px;
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-/* Media query for even smaller screens */
-@media (max-width: 600px) {
-    .letter-section {
-        height: 350px; /* Set a smaller height for very small screens */
-        padding: 15px; /* Optional: Adjust padding for smaller screens */
-        width: 90%; /* Make width responsive for smaller screens */
-    }
-}
-
-
-
-/* Media query for smaller screens */
-@media (max-width: 960px) { /* Adjust this value to fit your needs */
-    .letter-section {
-        height: 663px; /* Keep the height the same on smaller screens */
-    }
-}
-
-/* Media query for larger screens */
-@media (min-width: 961px) {
-    .letter-section {
-        height: 450px; /* Set a smaller height for larger screens */
-    }
 }
 
 .letter-section h2 {
@@ -122,9 +98,7 @@ body {
     padding: 0px 20px 20px 20px;
     border-bottom: 1px solid #ccc;
     height: 100%; /* Force pages to take the full container height */
-    max-height: 100%;
     width: 95%; /* Ensure it fills the available width */
-    
 }
 
 .letter-page.active {
@@ -158,5 +132,5 @@ body {
     font-size: 2em; /* Increase font size */
     text-align: center; /* Center text */
     color: #ea4c4c; /* Same color as the rest of the letter */
-    margin-top: 100px;
+    margin-top: 180px;
 }
