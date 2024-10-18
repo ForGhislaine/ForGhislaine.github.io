@@ -13,7 +13,8 @@ const words = [
     { word: "Miskeen", description: "One who is poor, pathetic, innocent." },
     { word: "EISHHHHH", description: "Used to express a range of emotions, such as surprise, annoyance, or resignation." },
     { word: "Lentils", description: "A high-protein pulse which is dried and then soaked and cooked prior to eating." },
-    { word: "Fantastic Feast (FF)", description: "Meat and fruits and rice and spaghetti and beans and everything." }
+    { word: "Fantastic Feast (FF)", description: "Meat and fruits and rice and spaghetti and beans and everything." },
+    { word: "UNCLEEEEEE", description: "Time to SNOGGGGG." }
 ];
 
 // Initialize the current word index
