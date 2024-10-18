@@ -70,61 +70,74 @@ body {
 
 .letter-section {
     font-family: 'Comic Sans MS', sans-serif;
+    
     max-width: 100%;
-    margin: 120px auto;
-    padding: 20px;
+    padding: 0px 20px 50px 20px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
+    overflow-y:auto;
+    overflow-x: hidden;
     position: relative;
     z-index: 1;
     color: #ea4c4c; /*Change font colour*/
-    height: 620px;
+    height: 100%;
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
+
+.border{
+    border-bottom: 1px solid #ccc;
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 600px) {
+    .letter-section {
+        height: 350px; /* Set a smaller height for very small screens */
+        padding: 15px; /* Optional: Adjust padding for smaller screens */
+        width: 90%; /* Make width responsive for smaller screens */
+    }
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 960px) { /* Adjust this value to fit your needs */
+    .letter-section {
+        height: 663px; /* Keep the height the same on smaller screens */
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 961px) {
+    .letter-section {
+        height: 450px; /* Set a smaller height for larger screens */
+    }
+}
+
+
 
 .letter-section h2 {
+    background: #fff;
     border-bottom: 2px #ea4c4c dashed;
     width: 100%;
+    margin-top: -2px;
+    padding-top: 40px;
     padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
-.letter-page {
-    display: none;
-    padding: 0px 20px 20px 20px;
-    border-bottom: 1px solid #ccc;
-    height: 100%; /* Force pages to take the full container height */
-    width: 95%; /* Ensure it fills the available width */
+.letter-section h2::after {
+    content: "💖"; /* Adds a heart after the h2 text */
+    font-size: 1em; /* Adjust size of the heart */
+    padding-left: 10px; /* Adds space between the text and the heart */
 }
 
-.letter-page.active {
-    display: block;
-}
-
-.letter-controls {
-    text-align: center;
-    margin-top: 17px;
-    flex-shrink: 0;
-}
-
-.letter-button {
-    font-family: 'Comic Sans MS', sans-serif;
-    padding: 10px 20px;
-    background: #ea4c4c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.letter-button:hover {
-    background: #d43c3c;
-}
 
 /* Styles for the last page with the proposal */
 
@@ -132,5 +145,25 @@ body {
     font-size: 2em; /* Increase font size */
     text-align: center; /* Center text */
     color: #ea4c4c; /* Same color as the rest of the letter */
-    margin-top: 180px;
+    margin-top: 60px;
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.letter-section::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.letter-section::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px;
+}
+
+.letter-section::-webkit-scrollbar-thumb {
+    background-color: #ea4c4c; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Roundness of the scrollbar handle */
+    border: 2px solid #f1f1f1; /* Adds space between the handle and the track */
+}
+
+.letter-section::-webkit-scrollbar-thumb:hover {
+    background-color: #d94444; /* Darker color on hover */
 }
