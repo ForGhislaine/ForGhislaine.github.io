@@ -97,7 +97,6 @@ body {
 @media (max-width: 600px) {
     .letter-section {
         height: 350px; /* Set a smaller height for very small screens */
-        padding: 15px; /* Optional: Adjust padding for smaller screens */
         width: 90%; /* Make width responsive for smaller screens */
     }
 }
@@ -107,7 +106,8 @@ body {
 /* Media query for smaller screens */
 @media (max-width: 960px) { /* Adjust this value to fit your needs */
     .letter-section {
-        height: 663px; /* Keep the height the same on smaller screens */
+        height: 450px; /* Keep the height the same on smaller screens */
+        margin-top: 50px;
     }
 }
 
@@ -115,6 +115,7 @@ body {
 @media (min-width: 961px) {
     .letter-section {
         height: 450px; /* Set a smaller height for larger screens */
+        margin-top: 50px;
     }
 }
 
