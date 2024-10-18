@@ -1,0 +1,130 @@
+body {
+    font-family: 'Consolas', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0b1522;
+    color: white;
+}
+
+.navbar {
+    background-color: #ea4c4c; /* Navbar background color */
+    padding: 15px 0; /* Padding around the navbar */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space between navbar and content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.navbar li {
+    display: inline; /* Display list items in a line */
+    margin: 0 20px; /* Space between items */
+}
+
+.navbar a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s, transform 0.3s; /* Transition effect */
+    padding: 8px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded corners for links */
+}
+
+.navbar a:hover {
+    color: #ffffff85; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
+    transform: scale(1.05); /* Slightly enlarge the link on hover */
+}
+
+/* Optional: Active Link Style */
+.navbar a.active {
+    border-bottom: 2px solid #fff; /* Underline for active link */
+}
+
+/* Letter Section Styles */
+.letter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%; /* Full width */
+    max-width: 720px; /* Or any width you prefer */
+    margin: 20px auto; /* Centers the container on the page */
+    padding: 100px 20px 10px 10px; /* Optional: Adds padding on the sides */
+}
+
+.letter-section {
+    font-family: 'Comic Sans MS', sans-serif;
+    max-width: 720px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    color: #ea4c4c; /*Change font colour*/
+    height: 620px;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.letter-section h2 {
+    border-bottom: 2px #ea4c4c dashed;
+    width: 720px;
+    padding-bottom: 10px;
+}
+
+.letter-page {
+    display: none;
+    padding: 0px 20px 20px 20px;
+    border-bottom: 1px solid #ccc;
+    height: 100%; /* Force pages to take the full container height */
+    width: 95%; /* Ensure it fills the available width */
+}
+
+.letter-page.active {
+    display: block;
+}
+
+.letter-controls {
+    text-align: center;
+    margin-top: 17px;
+    flex-shrink: 0;
+}
+
+.letter-button {
+    font-family: 'Comic Sans MS', sans-serif;
+    padding: 10px 20px;
+    background: #ea4c4c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.letter-button:hover {
+    background: #d43c3c;
+}
+
+/* Styles for the last page with the proposal */
+
+.letter-page .centered {
+    font-size: 2em; /* Increase font size */
+    text-align: center; /* Center text */
+    color: #ea4c4c; /* Same color as the rest of the letter */
+    margin-top: 180px;
+}
