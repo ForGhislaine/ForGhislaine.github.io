@@ -44,6 +44,7 @@
     transition: color 0.3s, transform 0.3s; /* Transition effect */
     padding: 8px 15px; /* Add padding for clickable area */
     border-radius: 5px; /* Rounded corners for links */
+    
 }
 
 .navbar a:hover {
@@ -60,17 +61,36 @@
 /* Map container */
 #map {
     height: 400px;
-    width: 50%;
+    width: 100%;
     border-radius: 8px; /* Optional: Rounded corners */
     margin-bottom: 20px; /* Space below the map */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
+.map{
+    max-width: 500px;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
+    margin-top: -100px;
+    align-content: center;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    #map {
+        height: 250px; /* Set a smaller height for very small screens */
+        width: 90%; /* Make width responsive for smaller screens */
+        align-content: center;
+    text-align: center;
+    }
+
+}
+
+
 /* Timeline container */
 .timeline {
     display: flex; /* Keep it flexible for horizontal layout */
     overflow-x: auto; /* Allow horizontal scrolling */
-    
     margin-top: 20px;
     padding: 10px;
     background-color: #ea4c4c; /* Match the navbar color */
