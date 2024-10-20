@@ -79,7 +79,7 @@
 @media (max-width: 600px) {
     #map {
         height: 250px; /* Set a smaller height for very small screens */
-        width: 90%; /* Make width responsive for smaller screens */
+        width: 100%; /* Make width responsive for smaller screens */
         align-content: center;
     text-align: center;
     }
