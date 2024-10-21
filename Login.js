@@ -1,11 +1,3 @@
-window.onload = function() {
-    console.log(localStorage.getItem('authenticated'));
-    // If the user is not authenticated, redirect to login page
-    if (!localStorage.getItem('authenticated')) {
-        window.location.href = 'index.html';
-    }
-}
-
 function checkPassword() {
     const password = document.getElementById('password').value;
     const correctPassword = 'Sangwich'; // Replace with your password
