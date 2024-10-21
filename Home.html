@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>For My Baby</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="Cursor.css">
+    <link rel="stylesheet" type="text/css" href="Confetti.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="Home.html" class="active">Home</a></li>
+            <li><a href="FMHTY.html">From My Heart To Yours</a></li>
+            <li><a href="Gallery.html">Photo Gallery</a></li>
+            <li><a href="Timeline.html">Timeline</a></li>
+
+        </ul>
+    </nav>
+    <div id="anniversary-popup" class="popup">
+      <div class="popup-content">
+          <h2>Happy anniversary, my heart!</h2>
+          <p>I pray we fall more in love everyday that passes. </p>
+          <p>Ndagukunda mwiza!</p>
+          <button onclick="closePopup()">Close</button>
+      </div>
+  </div>
+  
+    <!-- Heart -->
+    <div class="heart"></div>
+
+    <!-- Bible verse -->
+    <section>
+        <div class="verse-text">"You're beautiful from head to toe, my dear love, beautiful beyond compare, absolutely flawless."</div>
+        <div class="verse">Song of Solomon 4:7(MSG)</div>
+    </section>
+
+
+<!-- Video Section -->
+    <section class="video-section">
+        <h2>Since April 13th 2024...</h2>
+        <video controls width="600">
+            <source src="IMG_4608.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Timer -->
+    <section class="timer-section">
+        <h2></h2>
+        <div id="time-counter" class="timer">
+            <div class="time-unit" id="years"> <span class="time-text">years</span></div>
+            <div class="time-unit" id="months"> <span>months</span></div>
+            <div class="time-unit" id="days"> <span>days</span></div>
+            <div class="time-unit" id="hours"> <span>hours</span></div>
+            <div class="time-unit" id="minutes"> <span>minutes</span></div>
+            <div class="time-unit" id="seconds"> <span>seconds</span></div>
+        </div>
+    </section>
+    
+
+    <section class="songs-section">
+        <h2>Our Songs</h2>
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:600px; overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/gb/playlist/d-g/pl.u-qxylEYlt2pBPZP"></iframe>
+    </section>
+
+    <!-- Word Navigation Section -->
+    <h2 class="word-of-the-dayh2">Word Generator</h2>
+    <section class="word-of-the-day">
+    
+        <div class="word-container">
+            <div class="word-content">
+                <h3 class="word" id="word"></h3>
+                <p class="description" id="description"></p>
+            </div>
+            <div class="word-controls">
+                <button id="prev-word" class="word-button">Previous</button>
+                <button id="random-word" class="word-button">Refresh</button>
+                <button id="next-word" class="word-button">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script src="WordGenerator.js"></script>
+    <script src="Cursor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="Confetti.js"></script>
+    <script src="Trail.js"></script>
+</body>
+</html>
