@@ -70,7 +70,6 @@
         #map {
             height: 450px;
             width: 60%;
-            border: 5px solid #ea4c4c;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
