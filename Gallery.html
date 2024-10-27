@@ -1,313 +1,290 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Photo Gallery</title>
-  <link href="Gallery.css" rel="stylesheet">
-  <script type="text/javascript">
-    // <![CDATA[
-    var colours=new Array('#f00', '#f06', '#f0f', '#f6f', '#f39', '#f9c'); // colours of the hearts
-    var minisize=16; // smallest size of hearts in pixels
-    var maxisize=28; // biggest size of hearts in pixels
-    var hearts=66; // maximum number of hearts on screen
-    var over_or_under="under"; // set to "over" for hearts to always be on top, or "under" to allow them to float behind other objects
-    
-    /*****************************
-    *JavaScript Love Heart Cursor*
-    *  (c)2013+ mf2fm web-design *
-    *   http://www.mf2fm.com/rv  *
-    *  DON'T EDIT BELOW THIS BOX *
-    *****************************/
-    var x=ox=400;
-    var y=oy=300;
-    var swide=800;
-    var shigh=600;
-    var sleft=sdown=0;
-    var herz=new Array();
-    var herzx=new Array();
-    var herzy=new Array();
-    var herzs=new Array();
-    var kiss=false;
-    
-    if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
-      var oldonload=window.onload;
-      if (typeof(oldonload)!='function') window.onload=funky;
-      else window.onload=function() {
-        if (oldonload) oldonload();
-        funky();
-      }
-    }
-    
-    addRVLoadEvent(mwah);
-    
-    function mwah() { if (document.getElementById) {
-      var i, heart;
-      for (i=0; i<hearts; i++) {
-        heart=createDiv("auto", "auto");
-        heart.style.visibility="hidden";
-      heart.style.zIndex=(over_or_under=="over")?"1001":"0";
-        heart.style.color=colours[i%colours.length];
-      heart.style.pointerEvents="none";
-        if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
-        else heart.style.opacity=0.75;
-        heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
-        document.body.appendChild(heart);
-        herz[i]=heart;
-      herzy[i]=false;
-      }
-      set_scroll();
-      set_width();
-      herzle();
-    }}
-    
-    function herzle() {
-      var c;
-      if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
-        ox=x;
-        oy=y;
-        for (c=0; c<hearts; c++) if (herzy[c]===false) {
-        herz[c].firstChild.nodeValue=String.fromCharCode(9829);
-          herz[c].style.left=(herzx[c]=x-minisize/2)+"px";
-          herz[c].style.top=(herzy[c]=y-minisize)+"px";
-          herz[c].style.fontSize=minisize+"px";
-        herz[c].style.fontWeight='normal';
-          herz[c].style.visibility='visible';
-          herzs[c]=minisize;
-          break;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="Gallery.css">
+    <script type="text/javascript">
+      // <![CDATA[
+      var colours=new Array('#f00', '#f06', '#f0f', '#f6f', '#f39', '#f9c'); // colours of the hearts
+      var minisize=16; // smallest size of hearts in pixels
+      var maxisize=28; // biggest size of hearts in pixels
+      var hearts=66; // maximum number of hearts on screen
+      var over_or_under="under"; // set to "over" for hearts to always be on top, or "under" to allow them to float behind other objects
+      
+      /*****************************
+      *JavaScript Love Heart Cursor*
+      *  (c)2013+ mf2fm web-design *
+      *   http://www.mf2fm.com/rv  *
+      *  DON'T EDIT BELOW THIS BOX *
+      *****************************/
+      var x=ox=400;
+      var y=oy=300;
+      var swide=800;
+      var shigh=600;
+      var sleft=sdown=0;
+      var herz=new Array();
+      var herzx=new Array();
+      var herzy=new Array();
+      var herzs=new Array();
+      var kiss=false;
+      
+      if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
+        var oldonload=window.onload;
+        if (typeof(oldonload)!='function') window.onload=funky;
+        else window.onload=function() {
+          if (oldonload) oldonload();
+          funky();
         }
       }
-      for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
-      setTimeout("herzle()", 40);
-    }
-    
-    document.onmousedown=pucker;
-    document.onmouseup=function(){clearTimeout(kiss);};
-    
-    function pucker() {
-      ox=-1;
-      oy=-1;
-      kiss=setTimeout('pucker()', 100);
-    }
-    
-    function blow_me_a_kiss(i) {
-      herzy[i]-=herzs[i]/minisize+i%2;
-      herzx[i]+=(i%5-2)/5;
-      if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
-        herz[i].style.visibility="hidden";
-        herzy[i]=false;
-      }
-      else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
-      else {
-        if (Math.random()<maxisize/herzy[i] && herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
-        herz[i].style.top=herzy[i]+"px";
-        herz[i].style.left=herzx[i]+"px";
-      }
-    }
-    
-    function break_my_heart(i) {
-      var t;
-      herz[i].firstChild.nodeValue=String.fromCharCode(9676);
-      herz[i].style.fontWeight='bold';
-      herzy[i]=false;
-      for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
-      setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
-    }
-    
-    document.onmousemove=mouse;
-    function mouse(e) {
-      if (e) {
-        y=e.pageY;
-        x=e.pageX;
-      }
-      else {
+      
+      addRVLoadEvent(mwah);
+      
+      function mwah() { if (document.getElementById) {
+        var i, heart;
+        for (i=0; i<hearts; i++) {
+          heart=createDiv("auto", "auto");
+          heart.style.visibility="hidden";
+          heart.style.zIndex=(over_or_under=="over")?"1001":"0";
+          heart.style.color=colours[i%colours.length];
+          heart.style.pointerEvents="none";
+          if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
+          else heart.style.opacity=0.75;
+          heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
+          document.body.appendChild(heart);
+          herz[i]=heart;
+          herzy[i]=false;
+        }
         set_scroll();
-        y=event.y+sdown;
-        x=event.x+sleft;
+        set_width();
+        herzle();
+      }}
+      
+      function herzle() {
+        var c;
+        if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+          ox=x;
+          oy=y;
+          for (c=0; c<hearts; c++) if (herzy[c]===false) {
+            herz[c].firstChild.nodeValue=String.fromCharCode(9829);
+            herz[c].style.left=(herzx[c]=x-minisize/2)+"px";
+            herz[c].style.top=(herzy[c]=y-minisize)+"px";
+            herz[c].style.fontSize=minisize+"px";
+            herz[c].style.fontWeight='normal';
+            herz[c].style.visibility='visible';
+            herzs[c]=minisize;
+            break;
+          }
+        }
+        for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
+        setTimeout("herzle()", 40);
       }
-    }
-    
-    window.onresize=set_width;
-    function set_width() {
-      var sw_min=999999;
-      var sh_min=999999;
-      if (document.documentElement && document.documentElement.clientWidth) {
-        if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
-        if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+      
+      document.onmousedown=pucker;
+      document.onmouseup=function(){clearTimeout(kiss);};
+      
+      function pucker() {
+        ox=-1;
+        oy=-1;
+        kiss=setTimeout('pucker()', 100);
       }
-      if (typeof(self.innerWidth)=='number' && self.innerWidth) {
-        if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
-        if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+      
+      function blow_me_a_kiss(i) {
+        herzy[i]-=herzs[i]/minisize+i%2;
+        herzx[i]+=(i%5-2)/5;
+        if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
+          herz[i].style.visibility="hidden";
+          herzy[i]=false;
+        }
+        else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
+        else {
+          if (Math.random()<maxisize/herzy[i] && herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
+          herz[i].style.top=herzy[i]+"px";
+          herz[i].style.left=herzx[i]+"px";
+        }
       }
-      if (document.body.clientWidth) {
-        if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
-        if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+      
+      function break_my_heart(i) {
+        var t;
+        herz[i].firstChild.nodeValue=String.fromCharCode(9676);
+        herz[i].style.fontWeight='bold';
+        herzy[i]=false;
+        for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
+        setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
       }
-      if (sw_min==999999 || sh_min==999999) {
-        sw_min=800;
-        sh_min=600;
+      
+      document.onmousemove=mouse;
+      function mouse(e) {
+        if (e) {
+          y=e.pageY;
+          x=e.pageX;
+        }
+        else {
+          set_scroll();
+          y=event.y+sdown;
+          x=event.x+sleft;
+        }
       }
-      swide=sw_min;
-      shigh=sh_min;
-    }
-    
-    window.onscroll=set_scroll;
-    function set_scroll() {
-      if (typeof(self.pageYOffset)=='number') {
-        sdown=self.pageYOffset;
-        sleft=self.pageXOffset;
+      
+      window.onresize=set_width;
+      function set_width() {
+        var sw_min=999999;
+        var sh_min=999999;
+        if (document.documentElement && document.documentElement.clientWidth) {
+          if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+          if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+        }
+        if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+          if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+          if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+        }
+        if (document.body.clientWidth) {
+          if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+          if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+        }
+        if (sw_min==999999 || sh_min==999999) {
+          sw_min=800;
+          sh_min=600;
+        }
+        swide=sw_min;
+        shigh=sh_min;
       }
-      else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
-        sdown=document.body.scrollTop;
-        sleft=document.body.scrollLeft;
+      
+      window.onscroll=set_scroll;
+      function set_scroll() {
+        if (typeof(self.pageYOffset)=='number') {
+          sdown=self.pageYOffset;
+          sleft=self.pageXOffset;
+        }
+        else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+          sdown=document.body.scrollTop;
+          sleft=document.body.scrollLeft;
+        }
+        else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+          sleft=document.documentElement.scrollLeft;
+          sdown=document.documentElement.scrollTop;
+        }
+        else {
+          sdown=0;
+          sleft=0;
+        }
       }
-      else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-        sleft=document.documentElement.scrollLeft;
-        sdown=document.documentElement.scrollTop;
+      
+      function createDiv(height, width) {
+        var div=document.createElement("div");
+        div.style.position="absolute";
+        div.style.height=height;
+        div.style.width=width;
+        div.style.overflow="hidden";
+        div.style.backgroundColor="transparent";
+        return (div);
       }
-      else {
-        sdown=0;
-        sleft=0;
-      }
-    }
-    
-    function createDiv(height, width) {
-      var div=document.createElement("div");
-      div.style.position="absolute";
-      div.style.height=height;
-      div.style.width=width;
-      div.style.overflow="hidden";
-      div.style.backgroundColor="transparent";
-      return (div);
-    }
-    // ]]>
-    </script>
+      // ]]>
+      </script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="FMHTY.html">From My Heart To Yours</a></li>
-      <li><a href="Gallery.html" class="active">Photo Gallery</a></li>
-      <li><a href="Timeline.html">Timeline</a></li>
-      <li><a href="TIL.html">Things I Love</a></li>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <ul>
+        <li><a href="Home.html" >Home</a></li>
+        <li><a href="FMHTY.html">From My Heart To Yours</a></li>
+        <li><a href="Gallery.html" >Photo Gallery</a></li>
+        <li><a href="Timeline.html">Timeline</a></li>
+        <li><a href="TIL.html" class="active">Things I Love</a></li>
     </ul>
-</nav>
-  <p class="heading">My Top 6</p>
-  <div class="border">
-  <div class="gallery-image">
-    <div class="img-box">
-      <img src="IMG_2263.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-            <p>Watching The Sunset</p>
-            <p class="opacity-low">13th April 2024</p>
+    </div>
+
+    <!-- Heading -->
+    <div class="heading">Photo Map Gallery</div>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button id="prevBtn">Prev</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- Leaflet.js and Map Script -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2);
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Array of photo data with coordinates and image paths
+        const photos = [
+            { lat: 53.3794, lng: -1.4781, src: 'IMG_0154.jpeg', title: 'Dev Green' },
+            { lat: 53.3932, lng: -1.4637, src: 'IMG_1524.JPG', title: 'Burngreave SDA Church' },
+            { lat: 53.3829, lng: -1.4671, src: 'IMG_0938.jpeg', title: 'Escape Sheffield' },
+            { lat: 53.3789, lng: -1.4663, src: 'IMG_2179.jpeg', title: 'Hallam Library' },
+            { lat: 53.42433, lng: -1.5028, src: 'IMG_2263.JPG', title: 'Sunset Spot' },
+            { lat: 53.3359, lng: -1.4672, src: 'IMG_2528.jpeg', title: 'Graves Park' },
+            { lat: 53.4125, lng: -1.4159, src: 'IMG_2749.jpeg', title: 'Meadowhall' },
+            { lat: 53.3801, lng: -1.4807, src: 'IMG_2802.jpeg', title: 'Subdae Gelato' },
+            { lat: 53.3467, lng: -1.4164, src: 'IMG_2934.jpeg', title: 'Hairdressers House' },
+            { lat: 53.3804, lng: -1.4733, src: 'IMG_3025.JPG', title: 'Turtle Bay' },
+            { lat: 53.4259, lng: -1.4966, src: 'IMG_3397.jpeg', title: 'My Garden BBQ' },
+            { lat: 53.4182, lng: -1.4916, src: 'IMG_3672.JPG', title: 'Your Surprise BBQ' },
+            { lat: 53.4259, lng: -1.4966, src: 'IMG_4317.jpeg', title: 'My Surprise 18th' },
+            { lat: 53.3789, lng: -1.4663, src: 'IMG_4512.jpeg', title: 'Hallam Library' },
+            { lat: 53.3784, lng: -1.4540, src: 'IMG_4919.JPG', title: 'Auntie Pearls Party' },
+            { lat: 53.4088, lng: -1.4996, src: 'IMG_4928.jpeg', title: 'Hillsbrough Park Funfair' },
+            { lat: 53.3715, lng: -1.4770, src: 'IMG_5125.heic', title: 'Rassams' },
+            { lat: 53.3778, lng: -1.4596, src: 'IMG_5180.jpeg', title: 'Train Station' },
+            { lat: 53.3781, lng: -1.4930, src: 'IMG_5228.heic', title: 'Hallamshire Hospital' },
+            { lat: 53.7940, lng: -1.5484, src: 'IMG_5250.heic', title: 'Leeds Station' },
+            { lat: 53.4013, lng: -1.4140, src: 'IMG_5637.heic', title: '39 Desserts' },
+            { lat: 53.4125, lng: -1.4159, src: 'IMG_6074.heic', title: 'Meadowhall' }
+        ];
+
+        let currentPhotoIndex = 0;
+
+// Function to update the map view and popup based on the current photo index
+function updateMapView() {
+    const photo = photos[currentPhotoIndex];
+    map.setView([photo.lat, photo.lng], 12);
+
+    // Create a custom popup with a lower offset to avoid cutting off the top
+    const popup = L.popup({
+        offset: L.point(0, 200),  // Adjust the popup offset to be lower
+        closeOnClick: false,      // Keep popup open until manually closed
+    })
+    .setLatLng([photo.lat, photo.lng])
+    .setContent(`
+        <div style="text-align: center;">
+            <b style="color: #ea4c4c;">${photo.title}</b><br>
+            <img src="${photo.src}" alt="${photo.title}" width="100" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
         </div>
-      </div> 
-    </div>
-    <div class="img-box">
-      <img src="IMG_1524.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-            <p>Your Baptism</p>
-            <p class="opacity-low">20th April 2024</p>
-        </div>
-      </div>
-    </div>
-    <div class="img-box">
-      <img src="IMG_2944.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-            <p>Aunty Pearls Party</p>
-            <p class="opacity-low">25th May 2024</p>
-        </div>
-      </div>
-    </div>
-    <div class="img-box">
-      <img src="IMG_3025.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Turtle Bay</p>
-          <p class="opacity-low">27th May 2024</p>
-        </div>
-      </div> 
-    </div>
-    <div class="img-box">
-      <img src="IMG_3084.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Dev Green</p>
-          <p class="opacity-low">27th May 2024</p>
-        </div>
-      </div> 
-    </div>
-    <div class="img-box">
-      <img src="IMG_3672.JPG" alt="" />
-      <div class="transparent-box">
-        <div class="caption">
-          <p>Your Surprise BBQ</p>
-          <p class="opacity-low">7th July 2024</p>
-        </div>
-      </div> 
-    </div>
-    </div>
-</div>
-    <p class="heading">Your Top 6</p>
-<div class="border">
-    <div class="gallery-image">
-    <div class="img-box">
-        <img src="IMG_2179.jpeg" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Hallam Sessions</p>
-              <p class="opacity-low">7th April 2024</p>
-          </div>
-        </div> 
-      </div>
-      <div class="img-box">
-        <img src="IMG_2528.jpeg" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Walk in the park</p>
-              <p class="opacity-low">25th April 2024</p>
-          </div>
-        </div> 
-      </div>
-      <div class="img-box">
-        <img src="IMG_4919.JPG" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Aunty Pearls Party</p>
-              <p class="opacity-low">25th May 2024</p>
-          </div>
-        </div> 
-      </div>
-      <div class="img-box">
-        <img src="IMG_3025.JPG" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Turtle Bay</p>
-              <p class="opacity-low">27th May 2024</p>
-          </div>
-        </div> 
-      </div>
-      <div class="img-box">
-        <img src="IMG_0154.jpeg" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Dev Green</p>
-              <p class="opacity-low">27th May 2024</p>
-          </div>
-        </div> 
-      </div>
-      <div class="img-box">
-        <img src="IMG_3672.JPG" alt="" />
-        <div class="transparent-box">
-          <div class="caption">
-              <p>Your Surprise BBQ</p>
-              <p class="opacity-low">7th July 2024</p>
-          </div>
-        </div> 
-      </div>
-  </div>
-</div>  
+    `)
+    .openOn(map);
+
+
+}
+
+// Initial display of the first photo
+updateMapView();
+
+// Event listeners for Next and Prev buttons
+document.getElementById('nextBtn').addEventListener('click', () => {
+    currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+    updateMapView();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+    updateMapView();
+});
+    </script>
+
 </body>
 </html>
