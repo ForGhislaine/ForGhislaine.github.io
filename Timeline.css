@@ -76,6 +76,12 @@
     align-content: center;
     text-align: center;
 }
+
+.map h2{
+    font-size: 2.0em;
+    letter-spacing: 1px;
+}
+
 @media (max-width: 600px) {
     #map {
         height: 250px; /* Set a smaller height for very small screens */
