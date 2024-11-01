@@ -14,6 +14,8 @@ const words = [
     { word: "EISHHHHH", description: "Used to express a range of emotions, such as surprise, annoyance, or resignation." },
     { word: "Lentils", description: "A high-protein pulse which is dried and then soaked and cooked prior to eating." },
     { word: "Fantastic Feast (FF)", description: "Meat and fruits and rice and spaghetti and beans and everything." },
+    { word: "Maffyew", description: "A wasteman/prick/dickhead/twat." },
+    { word: "Ndagukunda", description: "I love you." },
     { word: "UNCLEEEEEE", description: "Time to SNOGGGGG." }
 ];
 
