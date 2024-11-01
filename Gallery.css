@@ -113,3 +113,56 @@
             background-color: #c13b3b;
         }
     
+
+        /*HI KIDS*/
+        .hikids {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 30px;
+          }
+          
+        .hikids h2{
+            text-align: center;
+            font-size: 32px;
+            letter-spacing: 1px;
+            color: white;
+            font-weight: bold;
+        }
+        .carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0; /* Margin around the carousel */
+        }
+        
+        .carousel video {
+            border-radius: 8px; /* Rounded corners for the video */
+        }
+        
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ea4c4c; 
+            color: white; /* Text color for the arrows */
+            border: none; /* Remove border */
+            font-size: 24px; /* Size of the arrow icons */
+            cursor: pointer; /* Pointer cursor on hover */
+            padding: 10px; /* Padding around the buttons */
+            border-radius: 5px; /* Rounded corners for the button */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            z-index: 1; /* Ensure buttons are on top of the video */
+        }
+        
+        .carousel button:hover {
+            background-color: #c13b3b; /* Solid background on hover */
+        }
+        
+        .prev {
+            left: -50px; /* Position for the left button */
+        }
+        
+        .next {
+            right: -50px; /* Position for the right button */
+        }
