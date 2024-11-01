@@ -10,6 +10,7 @@ body {
     justify-content: flex-start;
     background: #0b1522;
     color: white;
+    overflow-y: hidden;
 }
 
 /* Navbar */
