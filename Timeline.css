@@ -1,109 +1,107 @@
-  /* Basic styles */
-  body {
+/* Basic styles */
+body {
     font-family: 'Consolas', sans-serif;
     margin: 0;
-    padding-top: 42px; /* Space for the fixed navbar */
+    padding-top: 80px; /* Space for the fixed navbar */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: #0b1522;
     color: white;
-    overflow: hidden;
 }
 
+/* Navbar */
 .navbar {
-    background-color: #ea4c4c; /* Navbar background color */
-    padding: 15px 0; /* Padding around the navbar */
-    text-align: center; /* Center the text */
-    margin-bottom: 20px; /* Space between navbar and content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    position: fixed; /* Fixed at the top */
-    top: 0; /* Stick to the top of the page */
-    width: 100%; /* Full width of the screen */
-    z-index: 1000; /* Ensure the navbar is on top */ 
+    background-color: #ea4c4c;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar ul {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar li {
-    display: inline; /* Display list items in a line */
-    margin: 0 20px; /* Space between items */
+    display: inline;
+    margin: 0 20px;
 }
 
 .navbar a {
-    color: white; /* Link text color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold text */
-    transition: color 0.3s, transform 0.3s; /* Transition effect */
-    padding: 8px 15px; /* Add padding for clickable area */
-    border-radius: 5px; /* Rounded corners for links */
-    
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
 
 .navbar a:hover {
-    color: #ffffff85; /* Change color on hover */
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
-    transform: scale(1.05); /* Slightly enlarge the link on hover */
+    color: #ffffff85;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
-/* Optional: Active Link Style */
 .navbar a.active {
-    border-bottom: 2px solid #fff; /* Underline for active link */
+    border-bottom: 2px solid #fff;
 }
 
-/* Map container */
-#map {
-    height: 400px;
-    width: 100%;
-    border-radius: 8px; /* Optional: Rounded corners */
-    margin-bottom: 20px; /* Space below the map */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+/* Heading */
+.heading {     
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 1px;
+    padding: 30px; /* Adjust padding to avoid extra spacing */
+    color: white;
+    margin-top: -10px;
+    margin-bottom: -9px;
+    font-weight: bold;
 }
 
-.map{
-    max-width: 500px;
-    width: 100%;
-    max-height: 400px;
-    height: 100%;
-    margin-top: -100px;
-    align-content: center;
+/* Map Container */
+.map {
+    width: 100%; /* Ensure container fills available width */
     text-align: center;
 }
 
-.map h2{
-    font-size: 2.0em;
-    letter-spacing: 1px;
+#map {
+    height: 450px;
+    width: 60vw;
+    max-width: 10000px;
+    margin: 0 auto; /* Center the map horizontally */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
 }
 
 @media (max-width: 600px) {
     #map {
-        height: 250px; /* Set a smaller height for very small screens */
-        width: 100%; /* Make width responsive for smaller screens */
-        align-content: center;
-    text-align: center;
+        height: 260px;
+        width: 90vw;
     }
-
 }
-
 
 /* Timeline container */
 .timeline {
-    display: flex; /* Keep it flexible for horizontal layout */
-    overflow-x: auto; /* Allow horizontal scrolling */
+    display: flex;
+    overflow-x: auto;
     margin-top: 20px;
     padding: 10px;
-    background-color: #ea4c4c; /* Match the navbar color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    white-space: nowrap; /* Prevent line breaks */
-    max-width: 100%; /* Ensure it doesn't exceed the container */
+    background-color: #ea4c4c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    max-width: 100%;
     position: fixed;
     bottom: 0;
 }
@@ -112,14 +110,14 @@
 .timeline-item {
     cursor: pointer;
     padding: 10px;
-    background-color: #ea4c4c; /* Consistent background color */
-    border: 1px solid #ccc; /* Border style */
-    border-radius: 5px; /* Rounded corners */
-    margin-right: 10px; /* Add some space between items */
-    transition: background-color 0.3s ease; /* Transition for hover effect */
-    display: inline-block; /* Make sure items display in a line */
+    background-color: #ea4c4c;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
 .timeline-item:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
+    background-color: rgba(255, 255, 255, 0.2);
 }
