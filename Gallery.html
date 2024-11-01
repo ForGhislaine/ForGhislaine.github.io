@@ -213,7 +213,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         // Initialize the map
-        const map = L.map('map').setView([20, 0], 2);
+        const map = L.map('map').setView([51.505, -0.09], 2);
 
         // Add a tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -249,42 +249,53 @@
 
         let currentPhotoIndex = 0;
 
-// Function to update the map view and popup based on the current photo index
-function updateMapView() {
-    const photo = photos[currentPhotoIndex];
-    map.setView([photo.lat, photo.lng], 12);
+    // Add pins (markers) for each location
+    photos.forEach((photo, index) => {
+        L.marker([photo.lat, photo.lng]).addTo(map)
+            .bindPopup(`<b style="color: #ea4c4c;">${photo.title}</b><br><img src="${photo.src}" alt="${photo.title}" width="100" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">`)
+            .on('click', () => flyToLocation(index));  // Attach fly-to function to marker click
+    });
 
-    // Create a custom popup with a lower offset to avoid cutting off the top
-    const popup = L.popup({
-        offset: L.point(0, 200),  // Adjust the popup offset to be lower
-        closeOnClick: false,      // Keep popup open until manually closed
-    })
-    .setLatLng([photo.lat, photo.lng])
-    .setContent(`
-        <div style="text-align: center;">
-            <b style="color: #ea4c4c;">${photo.title}</b><br>
-            <img src="${photo.src}" alt="${photo.title}" width="100" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        </div>
-    `)
-    .openOn(map);
+    // Function to fly to the clicked location on the timeline
+    function flyToLocation(locationIndex) {
+        const loc = photos[locationIndex];
+        if (loc) {
+            map.flyTo([loc.lat, loc.lng], 15); // Zoom in when flying to the location
+            setTimeout(() => {
+                L.popup({
+                    offset: L.point(0, -40),  // Offset to avoid cutting off the top
+                    closeOnClick: false,      // Keep popup open until manually closed
+                })
+                .setLatLng([loc.lat, loc.lng])
+                .setContent(`
+                    <div style="text-align: center;">
+                        <b style="color: #ea4c4c;">${loc.title}</b><br>
+                        <img src="${loc.src}" alt="${loc.title}" width="100" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    </div>
+                `).openOn(map);
+            }, 1000); // Open the popup after the map flies
+        }
+    }
 
+    // Function to update the map view and popup based on the current photo index
+    function updateMapView() {
+        flyToLocation(currentPhotoIndex); // Use fly-to function to navigate to current photo
+    }
 
-}
-
-// Initial display of the first photo
-updateMapView();
-
-// Event listeners for Next and Prev buttons
-document.getElementById('nextBtn').addEventListener('click', () => {
-    currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+    // Initial display of the first photo
     updateMapView();
-});
 
-document.getElementById('prevBtn').addEventListener('click', () => {
-    currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-    updateMapView();
-});
-    </script>
+    // Event listeners for Next and Prev buttons
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+        updateMapView();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+        updateMapView();
+    });
+</script>
 
 </body>
 </html>
