@@ -12,6 +12,7 @@ body {
 
 }
 
+/* Navbar Styles */
 .navbar {
     background-color: #ea4c4c; /* Navbar background color */
     padding: 15px 0; /* Padding around the navbar */
@@ -66,6 +67,7 @@ body {
     max-width: 720px; /* Or any width you prefer */
     margin: 20px auto; /* Centers the container on the page */
     padding: 100px 20px 10px 10px; /* Optional: Adds padding on the sides */
+    position: relative; /* Needed for navigation arrow placement */
 }
 
 .letter-section {
@@ -79,7 +81,7 @@ body {
     overflow-y:auto;
     overflow-x: hidden;
     position: relative;
-    z-index: 1;
+    z-index: 1; /*MNTR*/
     color: #ea4c4c; /*Change font colour*/
     height: 100%;
     width: 40%;
@@ -93,31 +95,33 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
-/* Media query for even smaller screens */
-@media (max-width: 600px) {
-    .letter-section {
-        height: 350px; /* Set a smaller height for very small screens */
-        width: 90%; /* Make width responsive for smaller screens */
-    }
+/* Letter Navigation Styles */
+.letter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
 }
 
-
-
-/* Media query for smaller screens */
-@media (max-width: 960px) { /* Adjust this value to fit your needs */
-    .letter-section {
-        height: 450px; /* Keep the height the same on smaller screens */
-        margin-top: 50px;
-    }
+.nav-arrow {
+    background-color: #ea4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Media query for larger screens */
-@media (min-width: 961px) {
-    .letter-section {
-        height: 450px; /* Set a smaller height for larger screens */
-        margin-top: 50px;
-    }
+.nav-arrow:hover {
+    background-color: #d94444;
+    transform: scale(1.05);
 }
+
 
 
 
@@ -133,12 +137,17 @@ body {
     z-index: 2;
 }
 
-.letter-section h2::after {
+#letter-1 h2::after {
     content: "💖"; /* Adds a heart after the h2 text */
     font-size: 1em; /* Adjust size of the heart */
     padding-left: 10px; /* Adds space between the text and the heart */
 }
 
+#letter-2 h2::after {
+    content: "♾️"; /* Adds a emoji after the h2 text */
+    font-size: 1em; /* Adjust size of the emoji */
+    padding-left: 10px; /* Adds space between the text and the emoji */
+}
 
 /* Styles for the last page with the proposal */
 
@@ -167,4 +176,30 @@ body {
 
 .letter-section::-webkit-scrollbar-thumb:hover {
     background-color: #d94444; /* Darker color on hover */
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 600px) {
+    .letter-section {
+        height: 350px; /* Set a smaller height for very small screens */
+        width: 90%; /* Make width responsive for smaller screens */
+    }
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 960px) { /* Adjust this value to fit your needs */
+    .letter-section {
+        height: 450px; /* Keep the height the same on smaller screens */
+        margin-top: 50px;
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 961px) {
+    .letter-section {
+        height: 450px; /* Set a smaller height for larger screens */
+        margin-top: 50px;
+    }
 }
