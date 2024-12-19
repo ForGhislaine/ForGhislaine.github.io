@@ -16,6 +16,10 @@ const words = [
     { word: "Fantastic Feast (FF)", description: "Meat and fruits and rice and spaghetti and beans and everything." },
     { word: "Maffyew", description: "A wasteman/prick/dickhead/twat." },
     { word: "Ndagukunda", description: "I love you." },
+    { word: "10/10 bangin", description: "When something looks, tastes, smells, sounds or feels real good" },
+    { word: "10/10 minus", description: "Absolutely terrible, horrendous, egregious, sickening, trauma-inducing" },
+    { word: "Word Smhurd (and all variations)", description: "What you're saying don't even matter fr" },
+    { word: "When?", description: "Did I ask? (got youuuuuu)" },
     { word: "UNCLEEEEEE", description: "Time to SNOGGGGG." }
 ];
 
