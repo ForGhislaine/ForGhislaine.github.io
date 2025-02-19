@@ -20,7 +20,11 @@ const words = [
     { word: "10/10 minus", description: "Absolutely terrible, horrendous, egregious, sickening, trauma-inducing" },
     { word: "Word Smhurd (and all variations)", description: "What you're saying don't even matter fr" },
     { word: "When?", description: "Did I ask? (got youuuuuu)" },
-    { word: "UNCLEEEEEE", description: "Time to SNOGGGGG." }
+    { word: "UNCLEEEEEE", description: "Time to SNOGGGGG." },
+    { word: "What you on about you?", description: "You're just waffling if we being honest"},
+    { word: "Tentative", description: "Not certain or fixed; provisional"},
+    { word: "I'm getting fine", description: "You are just getting fine!"},
+    
 ];
 
 // Initialize the current word index
