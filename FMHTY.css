@@ -149,6 +149,11 @@ body {
     padding-left: 10px; /* Adds space between the text and the emoji */
 }
 
+#letter-3 h2::after {
+    content: "💌"; /* Adds a emoji after the h2 text */
+    font-size: 1em; /* Adjust size of the emoji */
+    padding-left: 10px; /* Adds space between the text and the emoji */
+}
 /* Styles for the last page with the proposal */
 
 .letter-page .centered {
