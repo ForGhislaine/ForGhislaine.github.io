@@ -42,7 +42,7 @@ function checkDateForConfetti() {
 
   // Set desired date (example: April 13th)
   const specialMonth = 4; // April
-  const specialDay = 13; // 13th
+  const specialDay = 14; // 13th
 
   // Check if today matches the special date
   if (month === specialMonth && day === specialDay) {
